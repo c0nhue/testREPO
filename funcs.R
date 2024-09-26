@@ -1,0 +1,6 @@
+library(tidyverse)
+view(starwars)
+select(starwars, name, species, height, mass)
+arrange(starwars, mass)
+slice(starwars, 1:4)
+filter(starwars, homeworld == "Naboo")
