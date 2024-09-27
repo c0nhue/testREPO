@@ -1,11 +1,27 @@
 library(tidyverse)
 library(dplyr)
+
+cat_lovers <- read_csv("cat-lovers.csv")
+cat_lovers
+view(cat_lovers)
+
+# piping
+cat_lovers %>%
+  mutate(
+    number_of_cats = case_when(
+      name == "Ginger Clark" ~ "2",
+      name == "Doug Bass" ~ "3",
+      TRUE ~ number_of_cats
+    ),
+    number_of_cats = as.numeric(number_of_cats) # convert chr to int
+  ) %>%
+  summarise(mean_cats = mean(number_of_cats))
+
+
 view(starwars)
 select(starwars, name, species, height, mass)
-arrange(starwars, mass)
 slice(starwars, 1:4)
 filter(starwars, homeworld == "Naboo")
-
 
 
 # piping
@@ -21,7 +37,7 @@ starwars %>%
     avg_height = mean(height, na.rm=TRUE)
   )
 
-
+#piping
 starwars %>%
   select(homeworld, mass) %>%
   mutate(homeworld_group = case_when(
