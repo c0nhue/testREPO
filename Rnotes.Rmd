@@ -1,0 +1,82 @@
+---
+title: "Notes"
+output: html_document
+date: "2024-09-26"
+---
+
+```{r load-packages, message=FALSE}
+library(tidyverse) 
+```
+
+## Types
+double 1, 2.44\
+logical TRUE, FALSE \
+integer 6L, 2:6\
+character "k", "hello" \
+
+```{r}
+typeof("look")
+typeof(2)
+typeof(4L)
+```
+
+function c() to produce vector of any type\
+```{r}
+x <- c(1,2,3)
+x
+typeof(x)
+y <- c("hello", "world")
+y
+typeof(y)
+```
+
+express one type as another with as.character(), as.numeric(), as.integer(), as.logical() \
+data type hierarchy: character>double>integer>logical \
+NaN - not a number \
+Inf and -Inf - positive and negative infinity \
+NA - not available \
+
+
+# Data classes
+```{r}
+M1 <- matrix(c(1, 4, 3, 6, 7, 2), nrow=2, ncol=3)
+M1
+M2 <- matrix(c(1, 4, 3, 6, 7, 2), nrow=3, ncol=2)
+M2
+M1 %*% M2 # matrix multiplication
+```
+
+```{r}
+l <- list(
+  item1 = 1:4,
+  item2 = "hi",
+  item3 = list(
+    item31 = 3
+  ),
+  item4 = c(TRUE, FALSE),
+  item5 = diag(3)
+)
+l
+```
+data frmae is a list where all items have same lenght \
+
+```{r}
+df <- data.frame(
+  x = c(1,2,3),
+  y = c(TRUE, FALSE, TRUE),
+  z = c("z", "x", "c")
+)
+df
+typeof(df)
+class(df)
+```
+
+use factors to handle categorical variables \
+```{r}
+x <- factor(c("BS", "MS", "PhD", "BS"))
+x
+class(x)
+glimpse(x)
+as.integer(x)
+```
+lubridate to work with dates easier \
