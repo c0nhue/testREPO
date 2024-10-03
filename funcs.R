@@ -1,7 +1,7 @@
 library(tidyverse)
 library(dplyr)
 
-cat_lovers <- read_csv("cat-lovers.csv")
+cat_lovers <- read_csv("data/cat-lovers.csv")
 cat_lovers
 view(cat_lovers)
 
